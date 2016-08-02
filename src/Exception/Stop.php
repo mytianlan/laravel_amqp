@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Common\Amqp\Exception;
+namespace Colors\Amqp\Exception;
 
 class Stop extends \Exception  
 { 

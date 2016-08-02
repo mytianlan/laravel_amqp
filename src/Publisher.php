@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Common\Amqp;
+namespace Colors\Amqp;
 
 use PhpAmqpLib\Message\AMQPMessage;
 use Config;

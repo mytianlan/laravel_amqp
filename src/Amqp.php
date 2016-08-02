@@ -27,7 +27,7 @@ class Amqp
     public function publish($message, $exchange, $routing='')
     {
         if (!$this->_publisher) {
-            $this->_publisher = App::make('namespace Colors\Amqp\Publisher');
+            $this->_publisher = App::make('Colors\Amqp\Publisher');
             $this->_publisher->connect($this->_conn);
         }
         $this->_publisher->publish($message, $exchange, $routing);
@@ -42,7 +42,7 @@ class Amqp
     public function consume($queue, Closure $callback, $properties = [])
     {
         if (!$this->_consumer) {
-            $this->_consumer = App::make('namespace Colors\Amqp\Consumer');
+            $this->_consumer = App::make('Colors\Amqp\Consumer');
             $this->_consumer->connect($this->_conn);
         }
         $properties['queue'] = $queue;  

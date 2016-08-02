@@ -1,5 +1,6 @@
 <?php
-namespace App\Services\Common\Amqp;
+namespace Colors\Amqp;
+
 use Closure;
 use PhpAmqpLib\Exception\AMQPException;
 

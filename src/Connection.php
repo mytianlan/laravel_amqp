@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Common\Amqp;
+namespace Colors\Amqp;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use Config;

@@ -12,12 +12,5 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
-		"php-amqplib/php-amqplib": "2.5.*"
-    },
-    "autoload": {
-        "psr-0": {
-            "laravel-amqp": "src"
-        }
     }
 }

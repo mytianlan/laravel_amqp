@@ -12,5 +12,10 @@
         }
     ],
     "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Colors\\Amqp\\": "src/"
+        }
     }
 }

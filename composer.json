@@ -1,0 +1,23 @@
+{
+    "name": "colors/laravel-amqp",
+    "type": "library",
+    "description": "colors laravel amqp",
+    "keywords": ["laravel","amqp"],
+    "homepage": "https://github.com/mytianlan/laravel_amqp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "liukangle",
+            "email": "liukangle@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+		"php-amqplib/php-amqplib": "2.5.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "laravel-amqp": "src"
+        }
+    }
+}

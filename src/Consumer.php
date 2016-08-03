@@ -9,7 +9,7 @@ class Consumer extends Connection
 {
     private $_consumerTag = '';
 
-    public function consume($queue, Closure $closure)
+    public function consume($queue, Closure $closure, $noAck=true)
     {
         try {
             $object = $this;
@@ -21,7 +21,7 @@ class Consumer extends Connection
             //exclusive: Request exclusive consumer access, meaning only this consumer can access the queue
             //nowait:
             //callback: A PHP Callback
-            $this->_consumerTag = $this->getChannel()->basic_consume($queue, '', false, true, false, false, function ($message) use ($closure, $object) {
+            $this->_consumerTag = $this->getChannel()->basic_consume($queue, '', false, $noAck, false, false, function ($message) use ($closure, $object) {
                     $closure($message, $object);
                 }   
             );

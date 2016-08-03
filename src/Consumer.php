@@ -3,9 +3,12 @@ namespace Colors\Amqp;
 
 use Closure;
 use PhpAmqpLib\Exception\AMQPException;
+use PhpAmqpLib\Exception\AMQPIOException;
 
 class Consumer extends Connection
 {
+    private $_consumerTag = '';
+
     public function consume($queue, Closure $closure)
     {
         try {
@@ -18,7 +21,7 @@ class Consumer extends Connection
             //exclusive: Request exclusive consumer access, meaning only this consumer can access the queue
             //nowait:
             //callback: A PHP Callback
-            $this->getChannel()->basic_consume($queue, '', false, true, false, false, function ($message) use ($closure, $object) {
+            $this->_consumerTag = $this->getChannel()->basic_consume($queue, '', false, true, false, false, function ($message) use ($closure, $object) {
                     $closure($message, $object);
                 }   
             );
@@ -31,9 +34,14 @@ class Consumer extends Connection
                 return true;
             }
 
+            if ($e instanceof AMQPIOException) {
+                $this->getChannel()->basic_cancel($this->_consumerTag);
+                return true;
+            }
+
             if ($e instanceof Exception\Stop) {
                 return true;
-            }   
+            }
             throw $e; 
         }  
         return true;

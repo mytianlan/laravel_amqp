@@ -52,6 +52,6 @@ class Amqp
             //->mergeProperties($properties)  
             //->setup();
 
-        $this->_consumer->consume($queue, $callback);
+        $this->_consumer->consume($queue, $callback, $properties);
     }
 }
